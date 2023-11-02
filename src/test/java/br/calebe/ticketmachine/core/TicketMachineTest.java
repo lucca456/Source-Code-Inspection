@@ -1,35 +1,28 @@
 package br.calebe.ticketmachine.core;
 
+import br.calebe.ticketmachine.exception.PapelMoedaInvalidaException;
+import br.calebe.ticketmachine.exception.SaldoInsuficienteException;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-class TicketMachineTest {
+import static org.junit.Assert.assertEquals;
+
+public class TicketMachineTest {
 
     @Test
-    void testConstructor() {
+    public void testConstructor() {
         TicketMachine machine = new TicketMachine(50);
         assertEquals(0, machine.getSaldo());
     }
 
-    @Test
-    void testInserirInvalido() {
+    @Test(expected = PapelMoedaInvalidaException.class)
+    public void testInserirInvalido() throws PapelMoedaInvalidaException {
         TicketMachine machine = new TicketMachine(50);
-        assertThrows(PapelMoedaInvalidaException.class, new Executable() {
-            @Override
-            public void execute() throws Throwable {
-                machine.inserir(3); // Valor inválido
-            }
-        });
+        machine.inserir(3);  // Valor inválido
     }
 
-    @Test
-    void testImprimirSaldoInsuficiente() {
+    @Test(expected = SaldoInsuficienteException.class)
+    public void testImprimirSaldoInsuficiente() throws SaldoInsuficienteException {
         TicketMachine machine = new TicketMachine(50);
-        assertThrows(SaldoInsuficienteException.class, new Executable() {
-            @Override
-            public void execute() throws Throwable {
-                machine.imprimir();
-            }
-        });
+        machine.imprimir();
     }
 }

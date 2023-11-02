@@ -1,4 +1,5 @@
-package br.calebe.ticketmachine.core;
+package test;
+import br.calebe.ticketmachine.core.PapelMoeda;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

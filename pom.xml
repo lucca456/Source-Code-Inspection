@@ -47,6 +47,14 @@
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.22.1</version>
+                    <configuration>
+                        <includes>
+                            <include>PapelMoedaTest.java</include>
+                            <include>TicketMachineTest.java</include>
+                            <include>TrocoTest.java</include>
+                        </includes>
+                    </configuration>
+
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>

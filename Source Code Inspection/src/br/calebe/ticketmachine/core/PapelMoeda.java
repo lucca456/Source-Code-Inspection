@@ -13,7 +13,6 @@ public class PapelMoeda {
         this.valor = valor;
         this.quantidade = quantidade;
     }
-
     public int getValor() {
         return valor;
     }
